@@ -136,7 +136,41 @@ function registerStoryFilters() {
   updateStories();
 }
 
+function registerArticleToc() {
+  const toc = document.querySelector("[data-article-toc]");
+  const list = document.querySelector("[data-article-toc-list]");
+  const headings = Array.from(document.querySelectorAll(".article-content h2, .article-content h3"));
+
+  if (!toc || !list || !headings.length) {
+    return;
+  }
+
+  headings.forEach((heading, index) => {
+    const title = heading.textContent.trim();
+
+    if (!title) {
+      return;
+    }
+
+    if (!heading.id) {
+      heading.id = `section-${index + 1}`;
+    }
+
+    const item = document.createElement("li");
+    const link = document.createElement("a");
+
+    item.className = `article-toc__item article-toc__item--${heading.tagName.toLocaleLowerCase("en-US")}`;
+    link.href = `#${heading.id}`;
+    link.textContent = title;
+    item.append(link);
+    list.append(item);
+  });
+
+  toc.hidden = !list.childElementCount;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   registerThemeToggle();
   registerStoryFilters();
+  registerArticleToc();
 });

@@ -5,7 +5,7 @@ layout: default
 <main id="main" class="article-page">
   <article>
     <header class="article-header">
-      <a class="article-back" href="{{ '/' | relative_url }}">Stories</a>
+      <a class="article-back stories-title" href="{{ '/' | relative_url }}">Stories</a>
 
       {% if page.tags.size > 0 %}
         <div class="article-tags" aria-label="태그">
@@ -25,8 +25,17 @@ layout: default
       {% endif %}
     </header>
 
-    <div class="article-content">
-      {{ content }}
+    <div class="article-body">
+      <div class="article-content">
+        {{ content }}
+      </div>
+
+      <aside class="article-toc" data-article-toc hidden>
+        <p class="article-toc__title">이 글에서 다룰 흐름</p>
+        <nav aria-label="글 목차">
+          <ol class="article-toc__list" data-article-toc-list></ol>
+        </nav>
+      </aside>
     </div>
   </article>
 </main>
