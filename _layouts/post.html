@@ -1,0 +1,32 @@
+---
+layout: default
+---
+
+<main id="main" class="article-page">
+  <article>
+    <header class="article-header">
+      <a class="article-back" href="{{ '/' | relative_url }}">Stories</a>
+
+      {% if page.tags.size > 0 %}
+        <div class="article-tags" aria-label="태그">
+          {% for tag in page.tags %}
+            <span>#{{ tag }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <h1>{{ page.title }}</h1>
+      <p class="article-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y년 %-m월 %-d일" }}</time>
+      </p>
+
+      {% if page.header.teaser %}
+        <img class="article-cover" src="{{ page.header.teaser | relative_url }}" alt="{{ page.header.teaser_alt | default: page.title }}">
+      {% endif %}
+    </header>
+
+    <div class="article-content">
+      {{ content }}
+    </div>
+  </article>
+</main>

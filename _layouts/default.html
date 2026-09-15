@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="{{ site.locale | slice: 0, 2 | default: 'ko' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | escape }}">
+    <title>{% if page.title %}{{ page.title }}{{ site.title_separator }}{% endif %}{{ site.title }}</title>
+    {% include head/custom.html %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">본문으로 이동</a>
+    {% include site-header.html %}
+    {{ content }}
+    <footer class="site-footer">
+      <div class="site-footer__inner">© {{ site.time | date: '%Y' }} {{ site.title }}</div>
+    </footer>
+  </body>
+</html>

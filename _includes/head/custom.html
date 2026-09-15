@@ -1,0 +1,17 @@
+<script>
+  (function () {
+    var scheme = "light";
+
+    try {
+      var storedScheme = window.localStorage.getItem("color-scheme");
+      scheme = storedScheme === "light" || storedScheme === "dark"
+        ? storedScheme
+        : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    } catch (error) {
+      scheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+
+    document.documentElement.dataset.colorScheme = scheme;
+  }());
+</script>
+<script src="{{ '/assets/js/blog.js' | relative_url }}" defer></script>

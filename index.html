@@ -1,0 +1,57 @@
+---
+layout: default
+---
+
+<main id="main" class="stories-page">
+  <section class="stories-section" aria-labelledby="stories-title">
+    <header class="stories-heading">
+      <h1 id="stories-title">Stories</h1>
+    </header>
+
+    <nav class="story-filters" aria-label="글 분류 필터">
+      <button class="story-filter is-active" type="button" data-tag="all">전체</button>
+      {% assign sorted_categories = site.categories | sort %}
+      {% for category in sorted_categories %}
+        {% case category[0] %}
+          {% when "ios" %}{% assign category_label = "iOS" %}
+          {% when "swift" %}{% assign category_label = "Swift" %}
+          {% when "architecture" %}{% assign category_label = "아키텍처" %}
+          {% when "tools" %}{% assign category_label = "개발 도구" %}
+          {% else %}{% assign category_label = category[0] %}
+        {% endcase %}
+        <button class="story-filter" type="button" data-tag="{{ category[0] | downcase | escape }}">{{ category_label }}</button>
+      {% endfor %}
+    </nav>
+
+    <div class="story-list">
+      {% for post in site.posts %}
+        <article class="story-item{% if post.header.teaser %} story-item--with-media{% endif %}" data-tags="{{ post.categories | join: '|' | downcase | escape }}" data-search="{{ post.title | append: ' ' | append: post.excerpt | strip_html | append: ' ' | append: post.tags | downcase | escape }}">
+          {% if post.header.teaser %}
+            <a class="story-item__media" href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true">
+              <img src="{{ post.header.teaser | relative_url }}" alt="">
+            </a>
+          {% endif %}
+
+          <div class="story-item__content">
+            {% if post.tags.size > 0 %}
+              <div class="story-item__tags" aria-label="태그">
+                {% for tag in post.tags limit: 3 %}
+                  <span>#{{ tag }}</span>
+                {% endfor %}
+              </div>
+            {% endif %}
+
+            <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+            <p>{{ post.excerpt | markdownify | strip_html | truncate: 180 }}</p>
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y년 %-m월 %-d일" }}</time>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    <p class="story-empty" data-filter-empty hidden>조건에 맞는 글이 없습니다.</p>
+    {% if site.posts.size == 0 %}
+      <p class="story-empty">아직 작성된 글이 없습니다.</p>
+    {% endif %}
+  </section>
+</main>

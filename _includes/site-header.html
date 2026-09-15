@@ -1,0 +1,24 @@
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-brand" href="{{ '/' | relative_url }}">
+      {% if site.logo %}
+        <img class="site-brand__logo" src="{{ site.logo | relative_url }}" alt="">
+      {% endif %}
+      <span>{{ site.title }}</span>
+    </a>
+
+    <div class="site-actions">
+      <form class="site-search" action="{{ '/' | relative_url }}" method="get" role="search" data-search-form>
+        <label class="visually-hidden" for="site-search-input">글 검색</label>
+        <input id="site-search-input" type="search" name="q" placeholder="글 검색" autocomplete="off" data-search-input>
+        <button type="submit" aria-label="검색">
+          <i class="fas fa-search" aria-hidden="true"></i>
+        </button>
+      </form>
+
+      <button class="theme-toggle" type="button" aria-label="다크 모드로 전환" data-theme-toggle>
+        <i class="fas fa-moon" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</header>
