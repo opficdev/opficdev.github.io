@@ -105,7 +105,8 @@ input {
   margin: 0 auto;
 }
 
-.site-brand {
+.site-brand,
+.site-brand:visited {
   display: inline-flex;
   align-items: center;
   gap: 0.7rem;
@@ -117,7 +118,8 @@ input {
 }
 
 .site-brand:hover,
-.site-brand:focus-visible {
+.site-brand:focus-visible,
+.site-brand:visited:hover {
   color: var(--brand);
 }
 
@@ -257,6 +259,15 @@ input {
   border-color: var(--brand);
   outline: none;
   background: color-mix(in srgb, var(--brand) 9%, var(--background));
+}
+
+:root[data-color-scheme="dark"] .story-filter:hover,
+:root[data-color-scheme="dark"] .story-filter:focus-visible,
+:root[data-color-scheme="dark"] .story-filter.is-active,
+:root[data-color-scheme="dark"] .theme-toggle[aria-pressed="true"] {
+  color: #0d1511;
+  border-color: var(--brand);
+  background: var(--brand);
 }
 
 .story-list {
