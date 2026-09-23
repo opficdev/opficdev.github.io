@@ -548,6 +548,11 @@ a.stories-title:visited:focus-visible {
   margin: 1.5rem 0;
 }
 
+:root[data-color-scheme="dark"] .article-content thead {
+  background-color: var(--surface);
+  border-bottom-color: var(--border);
+}
+
 .article-content a {
   color: var(--brand-strong);
 }
