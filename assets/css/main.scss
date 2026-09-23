@@ -14,7 +14,14 @@
   --muted: #6b7684;
   --subtle: #8b95a1;
   --border: #e5e8eb;
-  --code: #181b20;
+  --code: #f6f8fa;
+  --code-text: #24292f;
+  --code-comment: #6e7781;
+  --code-keyword: #cf222e;
+  --code-type: #8250df;
+  --code-string: #0a3069;
+  --code-number: #0550ae;
+  --code-function: #8250df;
 }
 
 :root[data-color-scheme="dark"] {
@@ -27,7 +34,14 @@
   --muted: #b0b8c1;
   --subtle: #8b95a1;
   --border: #30343a;
-  --code: #0d0f12;
+  --code: #1e2125;
+  --code-text: #e6edf3;
+  --code-comment: #8b949e;
+  --code-keyword: #ff7b72;
+  --code-type: #d2a8ff;
+  --code-string: #a5d6ff;
+  --code-number: #79c0ff;
+  --code-function: #d2a8ff;
 }
 
 * {
@@ -547,10 +561,69 @@ a.stories-title:visited:focus-visible {
 
 .article-content code,
 .article-content pre,
-.article-content .highlight {
-  color: #edf2f7;
+.article-content .highlight,
+.article-content div.highlighter-rouge {
+  color: var(--code-text);
   border-color: var(--border);
   background: var(--code);
+}
+
+.article-content .highlight span {
+  color: var(--code-text);
+}
+
+.article-content .highlight .c,
+.article-content .highlight .cm,
+.article-content .highlight .cp,
+.article-content .highlight .c1,
+.article-content .highlight .cs {
+  color: var(--code-comment);
+}
+
+.article-content .highlight .k,
+.article-content .highlight .kc,
+.article-content .highlight .kd,
+.article-content .highlight .kn,
+.article-content .highlight .kp,
+.article-content .highlight .kr,
+.article-content .highlight .ow {
+  color: var(--code-keyword);
+}
+
+.article-content .highlight .kt,
+.article-content .highlight .nc,
+.article-content .highlight .nd,
+.article-content .highlight .ne {
+  color: var(--code-type);
+}
+
+.article-content .highlight .s,
+.article-content .highlight .s1,
+.article-content .highlight .s2,
+.article-content .highlight .sb,
+.article-content .highlight .sc,
+.article-content .highlight .sd,
+.article-content .highlight .se,
+.article-content .highlight .si,
+.article-content .highlight .sr,
+.article-content .highlight .ss {
+  color: var(--code-string);
+}
+
+.article-content .highlight .m,
+.article-content .highlight .mf,
+.article-content .highlight .mh,
+.article-content .highlight .mi,
+.article-content .highlight .mo,
+.article-content .highlight .il {
+  color: var(--code-number);
+}
+
+.article-content .highlight .nf,
+.article-content .highlight .fm,
+.article-content .highlight .na,
+.article-content .highlight .nb {
+  color: var(--code-function);
 }
 
 .article-content :not(pre) > code {
@@ -567,6 +640,7 @@ a.stories-title:visited:focus-visible {
   padding: 1.25rem;
   overflow-x: auto;
   border-radius: 0.35rem;
+  tab-size: 2;
 }
 
 .article-content img {
