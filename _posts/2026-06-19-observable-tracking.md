@@ -55,10 +55,10 @@ struct DonutMenu: View {
 
 
 <table>
-<td align="center">
-<img src="/assets/images/posts/observable-tracking/image-01.png">
-<td align="center">
-<img src="/assets/images/posts/observable-tracking/image-02.png">
+<tr>
+<td align="center"><img src="/assets/images/posts/observable-tracking/image-01.png" alt="Observation 추적 예시의 첫 화면"></td>
+<td align="center"><img src="/assets/images/posts/observable-tracking/image-02.png" alt="Observation 추적 예시의 실행 결과"></td>
+</tr>
 </table>
 
 이 코드에서는 `model.name`에 대한 접근이 추적된다. 콘솔 결과는 버튼을 탭한 순서대로 기록한 것이다. `Start Tracking` 버튼을 탭하면 `withObservationTracking`의 apply closure가 즉시 실행된다. 그래서 먼저 `print(model.name)`가 실행되어 `opfic`가 출력된다. 이 시점에 추적 대상도 함께 만들어진다.
