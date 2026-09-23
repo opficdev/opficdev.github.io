@@ -553,6 +553,16 @@ a.stories-title:visited:focus-visible {
   background: var(--code);
 }
 
+.article-content :not(pre) > code {
+  padding: 0.08em 0.25em;
+  color: var(--text);
+  border-radius: 0.25em;
+  background: var(--surface);
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: inherit;
+}
+
 .article-content pre {
   padding: 1.25rem;
   overflow-x: auto;
