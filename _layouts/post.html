@@ -37,5 +37,23 @@ layout: default
         </nav>
       </aside>
     </div>
+
+    {% if page.previous or page.next %}
+      <nav class="article-post-nav" aria-label="이전 글과 다음 글">
+        {% if page.previous %}
+          <a class="article-post-nav__link article-post-nav__link--previous" href="{{ page.previous.url | relative_url }}" rel="prev">
+            <span class="article-post-nav__label">← 이전 글</span>
+            <span class="article-post-nav__title">{{ page.previous.title | escape }}</span>
+          </a>
+        {% endif %}
+
+        {% if page.next %}
+          <a class="article-post-nav__link article-post-nav__link--next" href="{{ page.next.url | relative_url }}" rel="next">
+            <span class="article-post-nav__label">다음 글 →</span>
+            <span class="article-post-nav__title">{{ page.next.title | escape }}</span>
+          </a>
+        {% endif %}
+      </nav>
+    {% endif %}
   </article>
 </main>
