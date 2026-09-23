@@ -1095,12 +1095,12 @@ Auth, Firestore, Cloud Functions, FCM을 조합해
 
 ## 참고 문서
 
-- [Add Firebase to your Apple project | Firebase](https://firebase.google.com/docs/ios/setup)
-- [Authenticate Using Google Sign-In on Apple Platforms | Firebase Authentication](https://firebase.google.com/docs/auth/ios/google-signin)
-- [Authenticate Using Apple | Firebase Authentication](https://firebase.google.com/docs/auth/ios/apple)
-- [Get data with Cloud Firestore | Firebase](https://firebase.google.com/docs/firestore/query-data/get-data)
-- [Call functions from your app | Cloud Functions for Firebase](https://firebase.google.com/docs/functions/callable)
-- [Schedule functions | Cloud Functions for Firebase](https://firebase.google.com/docs/functions/schedule-functions)
-- [tasks namespace | Cloud Functions for Firebase](https://firebase.google.com/docs/reference/functions/2nd-gen/node/firebase-functions.tasks)
-- [Receive messages in Apple platform apps | Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/ios/receive-messages)
+- [Add Firebase to your Apple project \| Firebase](https://firebase.google.com/docs/ios/setup)
+- [Authenticate Using Google Sign-In on Apple Platforms \| Firebase Authentication](https://firebase.google.com/docs/auth/ios/google-signin)
+- [Authenticate Using Apple \| Firebase Authentication](https://firebase.google.com/docs/auth/ios/apple)
+- [Get data with Cloud Firestore \| Firebase](https://firebase.google.com/docs/firestore/query-data/get-data)
+- [Call functions from your app \| Cloud Functions for Firebase](https://firebase.google.com/docs/functions/callable)
+- [Schedule functions \| Cloud Functions for Firebase](https://firebase.google.com/docs/functions/schedule-functions)
+- [tasks namespace \| Cloud Functions for Firebase](https://firebase.google.com/docs/reference/functions/2nd-gen/node/firebase-functions.tasks)
+- [Receive messages in Apple platform apps \| Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/ios/receive-messages)
 

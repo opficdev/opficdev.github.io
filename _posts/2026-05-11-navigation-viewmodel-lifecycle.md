@@ -739,9 +739,9 @@ ViewModel 생성 위치와 재사용 정책도 함께 설계해야 한다.
 
 ## 참고 문서
 
-- [NavigationStack | Apple Developer Documentation](https://developer.apple.com/documentation/swiftui/navigationstack)
-- [NavigationSplitView | Apple Developer Documentation](https://developer.apple.com/documentation/swiftui/navigationsplitview)
-- [NavigationLink | Apple Developer Documentation](https://developer.apple.com/documentation/swiftui/navigationlink)
+- [NavigationStack \| Apple Developer Documentation](https://developer.apple.com/documentation/swiftui/navigationstack)
+- [NavigationSplitView \| Apple Developer Documentation](https://developer.apple.com/documentation/swiftui/navigationsplitview)
+- [NavigationLink \| Apple Developer Documentation](https://developer.apple.com/documentation/swiftui/navigationlink)
 
 ## 실제 구현 참고 PR
 

@@ -799,8 +799,8 @@ struct URLSessionExperimentSuite {
 
 ## 참고 링크
 
-- [URLSession | Apple Developer Documentation](https://developer.apple.com/documentation/foundation/urlsession)
-- [URLRequest | Apple Developer Documentation](https://developer.apple.com/documentation/foundation/urlrequest)
-- [URLSessionConfiguration | Apple Developer Documentation](https://developer.apple.com/documentation/foundation/urlsessionconfiguration)
+- [URLSession \| Apple Developer Documentation](https://developer.apple.com/documentation/foundation/urlsession)
+- [URLRequest \| Apple Developer Documentation](https://developer.apple.com/documentation/foundation/urlrequest)
+- [URLSessionConfiguration \| Apple Developer Documentation](https://developer.apple.com/documentation/foundation/urlsessionconfiguration)
 - [RFC 9110: HTTP Semantics](https://www.rfc-editor.org/rfc/rfc9110)
 
