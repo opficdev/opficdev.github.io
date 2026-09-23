@@ -543,6 +543,15 @@ a.stories-title:visited:focus-visible {
   height: auto;
 }
 
+.article-content .theme-image--dark,
+:root[data-color-scheme="dark"] .article-content .theme-image--light {
+  display: none;
+}
+
+:root[data-color-scheme="dark"] .article-content .theme-image--dark {
+  display: block;
+}
+
 .site-footer {
   border-top: 1px solid var(--border);
 }
