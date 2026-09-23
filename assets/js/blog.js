@@ -145,6 +145,8 @@ function registerArticleToc() {
     return;
   }
 
+  const sections = [];
+
   headings.forEach((heading, index) => {
     const title = heading.textContent.trim();
 
@@ -164,9 +166,72 @@ function registerArticleToc() {
     link.textContent = title;
     item.append(link);
     list.append(item);
+    sections.push({ heading, item, link });
   });
 
-  toc.hidden = !list.childElementCount;
+  toc.hidden = !sections.length;
+
+  if (!sections.length) {
+    return;
+  }
+
+  let activeIndex = -1;
+  let updatePending = false;
+
+  function updateActiveSection() {
+    updatePending = false;
+    let nextIndex = 0;
+
+    for (let index = 0; index < sections.length; index += 1) {
+      if (sections[index].heading.getBoundingClientRect().top > 144) {
+        break;
+      }
+
+      nextIndex = index;
+    }
+
+    if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) {
+      nextIndex = sections.length - 1;
+    }
+
+    if (nextIndex !== activeIndex) {
+      if (activeIndex >= 0) {
+        sections[activeIndex].item.classList.remove("is-active");
+        sections[activeIndex].link.removeAttribute("aria-current");
+      }
+
+      sections[nextIndex].item.classList.add("is-active");
+      sections[nextIndex].link.setAttribute("aria-current", "location");
+      activeIndex = nextIndex;
+    }
+
+    const activeSection = sections[nextIndex];
+
+    if (toc.scrollHeight <= toc.clientHeight) {
+      return;
+    }
+
+    const itemBounds = activeSection.item.getBoundingClientRect();
+    const tocBounds = toc.getBoundingClientRect();
+
+    if (itemBounds.top < tocBounds.top + 16 || itemBounds.bottom > tocBounds.bottom - 16) {
+      toc.scrollTop += itemBounds.top - tocBounds.top - (toc.clientHeight - itemBounds.height) / 2;
+    }
+  }
+
+  function scheduleActiveSectionUpdate() {
+    if (updatePending) {
+      return;
+    }
+
+    updatePending = true;
+    window.requestAnimationFrame(updateActiveSection);
+  }
+
+  window.addEventListener("scroll", scheduleActiveSectionUpdate, { passive: true });
+  window.addEventListener("resize", scheduleActiveSectionUpdate);
+  window.addEventListener("load", scheduleActiveSectionUpdate);
+  scheduleActiveSectionUpdate();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
