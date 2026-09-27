@@ -895,12 +895,16 @@ a.stories-title:visited:focus-visible {
   margin: 0;
 }
 
-.rag-sidebar-example__text {
+.rag-sidebar-example > p {
+  margin: 0;
+}
+
+.rag-sidebar-example__code {
   min-width: 0;
 }
 
-.rag-sidebar-example__text > :first-child {
-  margin-top: 0;
+.rag-sidebar-example__code > :first-child {
+  margin-block: 0;
 }
 
 .rag-architecture {

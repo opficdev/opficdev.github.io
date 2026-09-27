@@ -102,13 +102,13 @@ Decision Memory에는 장기적으로 다시 참고할 기술적 선택을 기�
 
 구현에서는 기존 TabView를 유지하면서 별도 SideBar를 구성하고 동일한 selectedTab을 공유했습니다. 결정 기록의 ‘기존 탭 구조를 유지한다’는 조건이 실제 변경 범위를 정하는 근거로 이어졌습니다.
 
+왼쪽에는 홈, 오늘, 알림과 프로필을 선택하는 사이드바가 있고 오른쪽에는 선택한 탭의 내용이 표시됩니다. 화면의 배치와 별개로 단일 TabView를 유지한다는 구조는 코드에서 확인할 수 있습니다. 아래는 현재 MainView에서 선택 상태를 연결하는 부분만 간추린 코드입니다.
+
 <div class="rag-sidebar-example" markdown="1">
 
 <img class="rag-sidebar-example__image" src="/assets/images/posts/rag-context-for-ai-workflows/sidebar-ipados27-m5.png" alt="iPadOS 27의 iPad Pro 13형 M5에서 실행한 사이드바와 홈 화면">
 
-<div class="rag-sidebar-example__text" markdown="1">
-
-왼쪽에는 홈, 오늘, 알림과 프로필을 선택하는 사이드바가 있고 오른쪽에는 선택한 탭의 내용이 표시됩니다. 화면의 배치와 별개로 단일 TabView를 유지한다는 구조는 코드에서 확인할 수 있습니다. 아래는 현재 MainView에서 선택 상태를 연결하는 부분만 간추린 코드입니다.
+<div class="rag-sidebar-example__code" markdown="1">
 
 ```swift
 HStack(spacing: 0) {
@@ -134,10 +134,10 @@ HStack(spacing: 0) {
 }
 ```
 
-SideBar와 TabView가 같은 selectedTab에 연결되어 있습니다. 사이드바는 선택 상태를 바꾸고 TabView는 그 선택에 해당하는 콘텐츠를 표시합니다. 사이드바가 보이는 환경에서는 각 탭 콘텐츠의 toolbarVisibility로 시스템 탭바를 숨깁니다. 실행 화면은 배치를 보여주고 코드에서는 과거 결정의 조건이 어떻게 표현되어 있는지 확인할 수 있습니다.
+</div>
+</div>
 
-</div>
-</div>
+SideBar와 TabView가 같은 selectedTab에 연결되어 있습니다. 사이드바는 선택 상태를 바꾸고 TabView는 그 선택에 해당하는 콘텐츠를 표시합니다. 사이드바가 보이는 환경에서는 각 탭 콘텐츠의 toolbarVisibility로 시스템 탭바를 숨깁니다. 실행 화면은 배치를 보여주고 코드에서는 과거 결정의 조건이 어떻게 표현되어 있는지 확인할 수 있습니다.
 
 ## 현재 구성의 한계와 확인할 것
 
