@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net">
+  <diagram id="rag-workflow" name="과거 결정을 활용하는 RAG 흐름">
+    <mxGraphModel grid="1" page="1" pageWidth="1200" pageHeight="510" background="#FFFFFF">
+      <root>
+        <mxCell id="0" style="" />
+        <mxCell id="1" parent="0" style="" />
+        <mxCell id="bg" value="" style="fillColor=#FFFFFF;strokeColor=none;html=1;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="0" y="0" width="1160" height="510" />
+        </mxCell>
+        <mxCell id="lower" value="" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;fillColor=#F1FAF5;strokeColor=#E5E8EB;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="476" y="320" width="648" height="162" />
+        </mxCell>
+        <mxCell id="rail" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#21B573;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="476" y="320" width="4" height="162" />
+        </mxCell>
+        <mxCell id="title" value="과거 결정을 현재 작업에 연결하기" style="text;align=left;fontColor=#191F28;fontSize=24;fontStyle=1;html=1;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="28" width="1050" height="38" />
+        </mxCell>
+        <mxCell id="subtitle" value="필요한 기록을 검색하고 현재 코드와 대조해 판단 근거로 사용합니다." style="text;html=1;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#6B7684;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="72" width="1050" height="24" />
+        </mxCell>
+        <mxCell id="request" value="사용자 요청" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#F7F8F8;strokeColor=#E5E8EB;strokeWidth=1.2;fontFamily=Arial;fontColor=#191F28;fontSize=15;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="168" width="180" height="80" />
+        </mxCell>
+        <mxCell id="current" value="활성 정책과 현재 코드&lt;br&gt;&lt;font color=&quot;#6B7684&quot;&gt;작업 규칙과 구현 사실 확인&lt;/font&gt;" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#F7F8F8;strokeColor=#E5E8EB;strokeWidth=1.2;fontFamily=Arial;fontColor=#191F28;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="270" y="168" width="180" height="80" />
+        </mxCell>
+        <mxCell id="judge" value="과거 판단의&lt;br&gt;이유가 필요한가?" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#F7F8F8;strokeColor=#E5E8EB;strokeWidth=1.2;fontFamily=Arial;fontColor=#191F28;fontSize=15;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="500" y="168" width="220" height="80" />
+        </mxCell>
+        <mxCell id="answer" value="답변과 변경안 생성&lt;br&gt;&lt;font color=&quot;#6B7684&quot;&gt;구현 및 검증&lt;/font&gt;" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#F7F8F8;strokeColor=#E5E8EB;strokeWidth=1.2;fontFamily=Arial;fontColor=#191F28;fontSize=15;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="860" y="168" width="240" height="80" />
+        </mxCell>
+        <mxCell id="search" value="Decision Memory 조회&lt;br&gt;&lt;font color=&quot;#6B7684&quot;&gt;프로젝트와 활성 결정&lt;/font&gt;" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#21B573;strokeWidth=1.2;fontFamily=Arial;fontColor=#191F28;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="500" y="378" width="220" height="80" />
+        </mxCell>
+        <mxCell id="compare" value="이유와 제약 확인&lt;br&gt;&lt;font color=&quot;#6B7684&quot;&gt;현재 코드와 후속 결정 대조&lt;/font&gt;" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#21B573;strokeWidth=1.2;fontFamily=Arial;fontColor=#191F28;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="860" y="378" width="240" height="80" />
+        </mxCell>
+        <mxCell id="lane_title" value="검색 결과 확인과 활용" style="text;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontStyle=1;fontColor=#138B57;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="690" y="332" width="220" height="26" />
+        </mxCell>
+        <mxCell id="a" value="" style="edgeStyle=none;rounded=0;html=1;endArrow=block;endFill=1;endSize=9;strokeWidth=1.4;strokeColor=#8B95A1;fontFamily=Arial;fontColor=#6B7684;fontSize=12;labelBackgroundColor=none;exitPerimeter=0;entryPerimeter=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="request" target="current">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="b" value="" style="edgeStyle=none;rounded=0;html=1;endArrow=block;endFill=1;endSize=9;strokeWidth=1.4;strokeColor=#8B95A1;fontFamily=Arial;fontColor=#6B7684;fontSize=12;labelBackgroundColor=none;exitPerimeter=0;entryPerimeter=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="current" target="judge">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="c" value="불필요" style="edgeStyle=none;rounded=0;html=1;endArrow=block;endFill=1;endSize=9;strokeWidth=1.4;strokeColor=#8B95A1;fontFamily=Arial;fontColor=#6B7684;fontSize=12;labelBackgroundColor=none;exitPerimeter=0;entryPerimeter=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="judge" target="answer">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="0" y="-16" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d" value="필요" style="edgeStyle=none;rounded=0;html=1;endArrow=block;endFill=1;endSize=9;strokeWidth=1.5;strokeColor=#21B573;fontFamily=Arial;fontColor=#138B57;fontSize=12;labelBackgroundColor=none;exitPerimeter=0;entryPerimeter=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="judge" target="search">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="24" y="-12" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e" value="관련 기록" style="edgeStyle=none;rounded=0;html=1;endArrow=block;endFill=1;endSize=9;strokeWidth=1.5;strokeColor=#21B573;fontFamily=Arial;fontColor=#138B57;fontSize=12;labelBackgroundColor=none;exitPerimeter=0;entryPerimeter=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="search" target="compare">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="0" y="-16" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f" value="판단 근거 반영" style="edgeStyle=none;rounded=0;html=1;endArrow=block;endFill=1;endSize=9;strokeWidth=1.5;strokeColor=#21B573;fontFamily=Arial;fontColor=#138B57;fontSize=12;labelBackgroundColor=none;exitPerimeter=0;entryPerimeter=0;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="compare" target="answer">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="53" y="-12" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
