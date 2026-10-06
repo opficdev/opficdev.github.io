@@ -510,7 +510,6 @@ a.stories-title:visited:focus-visible {
 .article-toc__item.is-active a:visited {
   color: var(--brand-strong);
   background: color-mix(in srgb, var(--brand) 14%, transparent);
-  font-weight: 700;
 }
 
 .article-toc__item a:hover,
