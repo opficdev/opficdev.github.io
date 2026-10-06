@@ -218,7 +218,7 @@ BindingReducer가 State를 바꾼다
 Stepper(
     value: Binding(
         get: { store.step },
-        set: { store.send(.binding(.set(\.$step, $0))) }
+        set: { store.send(.binding(.set(\.step, $0))) }
     ),
     in: 1...10
 ) {

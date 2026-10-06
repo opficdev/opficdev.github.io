@@ -65,7 +65,7 @@ struct DonutMenu: View {
 
 그 다음 `Change age`를 탭하면 `age changed: 28`만 출력된다. `age`는 첫번째 클로저 안에서 접근하지 않았기 때문에 이 변경은 `onChange`를 호출하지 않는다. 마지막으로 `Change name`을 탭하면 `tracked property changed`가 먼저 출력되고 그 다음 `name changed: jin`이 출력된다. 현재 예제에서는 `model.name = "jin"` 대입 경로의 `willSet` 단계에서 `onChange`가 호출될 수 있기 때문이다. 이 결과는 `withObservationTracking`이 객체 전체 변경을 보는 것이 아니라 apply closure 안에서 실제로 접근한 프로퍼티만 추적한다는 것을 보여 준다.
 
-`ObservationTracking.swift`를 보면 이 동작은 `generateAccessList()`와 `_installTracking()`으로 구분된다. 먼저 access list를 만들고 그 다음 그 목록에 observer를 설치한다. 즉 추적의 실체는 어떠한 '관찰'이 아니라 access list 생성과 observer 설치다.
+`ObservationTracking.swift`를 보면 이 동작은 `generateAccessList()`와 `_installTracking()`으로 구분된다. 먼저 access list를 만들고 그 다음 그 목록에 observer를 설치한다. 즉 추적의 실체는 막연한 '관찰'이 아니라 access list 생성과 observer 설치다.
 
 ### 레퍼런스
 
@@ -147,7 +147,7 @@ let storage = DeclSyntax(
 
 여기서 getter는 프로퍼티 접근을 기록한다. setter는 프로퍼티에 새 값을 넣고 그 변경을 Observation 쪽에 전달한다. `_modify`는 `append`처럼 값 내부를 직접 바꾸는 경우를 처리한다. 그래서 `@Observable`은 프로퍼티를 그대로 두는 것이 아니라 프로퍼티마다 읽기 경로와 쓰기 경로와 값 내부를 직접 바꾸는 경로를 따로 만든다고 보면 된다.
 
-setter는 `withMutation`에 들어가기 전에 `shouldNotifyObservers`를 한 번 거친다. 이 helper는 타입에 따라 다르게 동작한다. `Equatable` 값은 `!=`로 비교하고, class는 identity 또는 equality 기준으로 비교한다. `Non-Equatable` 값은 비교할 수 없기 때문에 setter의 `shouldNotifyObservers` 단계에서는 항상 `true`로 처리된다. 반면 `_modify`는 같은 방식으로 비교하지 않는다.
+setter는 `withMutation`에 들어가기 전에 `shouldNotifyObservers`를 한 번 거친다. 이 helper는 타입에 따라 다르게 동작한다. `Equatable` 값은 `!=`로 비교하고 class는 identity 또는 equality 기준으로 비교한다. `Non-Equatable` 값은 비교할 수 없기 때문에 setter의 `shouldNotifyObservers` 단계에서는 항상 `true`로 처리된다. 반면 `_modify`는 같은 방식으로 비교하지 않는다.
 
 ### 레퍼런스
 
@@ -160,7 +160,7 @@ setter는 `withMutation`에 들어가기 전에 `shouldNotifyObservers`를 한 �
 
 computed property는 두 종류로 나눠서 봐야 한다.
 
-첫째는 저장 프로퍼티 조합으로 만들어진 computed property다. 이 경우는 자동 추적이 된다. `SE-0395`문서에서는 저장 프로퍼티를 바탕으로 값을 만드는 computed property는 자동 추적된다고 설명한다. 
+첫째는 저장 프로퍼티 조합으로 만들어진 computed property다. 이 경우는 자동 추적이 된다. `SE-0395` 문서에서는 저장 프로퍼티를 바탕으로 값을 만드는 computed property는 자동 추적된다고 설명한다. 
 
 ```text
 Computed properties that derive their values from stored properties are automatically tracked due to their reliance on tracked properties.

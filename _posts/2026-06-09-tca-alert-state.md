@@ -1,7 +1,7 @@
 ---
 title: "TCA AlertState: Alert 표시를 State로 관리하기"
 date: "2026-06-09T08:21:40.879Z"
-excerpt: "범위\n\n이번 정리에서 볼 흐름\n\nSwiftUI에서는 보통 showAlert 같은 Bool 값을 둔다\n\n그리고 title, message, alert type을 따로 관리한다\n\nTCA에서는 Alert도 State로 둔다\n\n이번 세션에서는 Login 화면의 실패 Alert"
+excerpt: "Alert 표시 여부와 내용을 AlertState로 State에 두고 Reducer에서 관리하는 방식을 정리"
 categories: architecture
 tags: ["The Composable Architecture"]
 source_url: "https://velog.io/@opficdev/TCA-AlertState-Alert-표시를-State로-관리하기"
@@ -166,7 +166,7 @@ case .signInFailed(let alertType):
 
 View가 직접 Alert 값을 조립하지 않는다
 
-실패라는 결과를 Reducer가 받고, Reducer가 Alert 표시 여부와 내용을 결정한다
+실패라는 결과를 Reducer가 받고 Reducer가 Alert 표시 여부와 내용을 결정한다
 
 ## AlertState 만들기
 

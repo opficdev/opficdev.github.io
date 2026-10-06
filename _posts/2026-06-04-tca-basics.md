@@ -17,7 +17,7 @@ header:
 View -> Action -> Reducer -> State -> View
 ```
 
-첫 번째 글에서는 버튼을 누르면 숫자가 바뀌는 매우 카운터 예제를 구현했다
+첫 번째 글에서는 버튼을 누르면 숫자가 바뀌는 매우 단순한 카운터 예제를 구현했다
 
 ## 예제 코드
 
@@ -73,7 +73,7 @@ struct State: Equatable {
 
 `@ObservableState`: Store의 State 변화를 View에서 관찰하기 위한 표시
 
-`Equatable`은 화면 동작 자체에는 필수가 아니지만 상태 비교와 테스트 확장을 생각하면 붙여두는 편이 나은것 같다. (공식 문서 예제에서도 `Equatable`을 붙인 예제를 확인할 수 있었다)
+`Equatable`은 화면 동작 자체에는 필수가 아니지만 상태 비교와 테스트 확장을 생각하면 붙여두는 편이 나은 것 같다. (공식 문서 예제에서도 `Equatable`을 붙인 예제를 확인할 수 있었다)
 
 ## Action
 

@@ -19,7 +19,7 @@ Swift에서 네트워크 코드를 작성할 때 가장 먼저 만나는 타입�
 
 처음 네트워크 코드를 작성할 때는 `URLSession.shared.data(for:)` 한 줄이면 충분해 보인다. 하지만 앱 안에서 요청이 많아지면 곧 비슷한 문제가 반복된다. 요청은 어디에서 만들고 어디에서 보내야 하는지, 404 응답은 왜 `catch`로 들어오지 않는지, 같은 요청이 동시에 여러 번 나가도 괜찮은지 같은 문제다.
 
-이 글은 그런 질문을 API 사용법 순서가 아니라 요청의 흐름 순서로 따라간다. 먼저 `URLRequest`가 어떤 요청을 보낼지 표현하는 값이라는 점을 확인하고, 그 다음 `URLSession`이 그 요청을 실제 네트워크 작업으로 실행하는 방식을 본다. 이후 HTTP status code, 진행 중인 중복 요청 방지, retry, auth처럼 실제 앱에서 네트워크 레이어를 만들 때 부딪히는 정책들을 하나씩 분리해서 살펴본다.
+이 글은 그런 질문을 API 사용법 순서가 아니라 요청의 흐름 순서로 따라간다. 먼저 `URLRequest`가 어떤 요청을 보낼지 표현하는 값이라는 점을 확인하고 그 다음 `URLSession`이 그 요청을 실제 네트워크 작업으로 실행하는 방식을 본다. 이후 HTTP status code, 진행 중인 중복 요청 방지, retry, auth처럼 실제 앱에서 네트워크 레이어를 만들 때 부딪히는 정책들을 하나씩 분리해서 살펴본다.
 
 목표는 특정 API를 외우는 것이 아니다. `URLRequest`와 `URLSession` 사이에서 어떤 책임을 어디에 둬야 하는지 판단할 수 있는 기준을 만드는 것이다.
 
@@ -103,7 +103,7 @@ request.httpBody = #"{"name":"opfic"}"#.data(using: .utf8)
 request.timeoutInterval = 5
 ```
 
-이 코드는 설명한대로 네트워크 요청을 보낸 것이 아니다. 요청을 설명하는 값을 만든 것이다.
+이 코드는 설명한 대로 네트워크 요청을 보낸 것이 아니다. 요청을 설명하는 값을 만든 것이다.
 
 `URLRequest`는 HTTP message를 구성하는 단계와 비슷하다. HTTP request line, header field, message body에 해당하는 정보를 담는다. 하지만 연결 설정, 흐름 제어, 혼잡 제어, 세그먼트 재전송 같은 일은 여기서 일어나지 않는다. 그 아래 작업은 `URLSession`과 OS 네트워크 스택이 담당한다.
 
@@ -266,7 +266,7 @@ print(CountingURLProtocol.requestCount)
 
 이 실험 결과는 같은 request value를 동시에 넘겨도 `URLSession` 호출 자체가 자동으로 하나로 합쳐지지 않는다는 점을 보여준다.
 
-해결하려면 이미 실행 중인 요청을 key로 보관하고, 같은 key의 요청이 들어오면 새 task를 만들지 않고 기존 task의 결과를 기다리게 하면 된다.
+해결하려면 이미 실행 중인 요청을 key로 보관하고 같은 key의 요청이 들어오면 새 task를 만들지 않고 기존 task의 결과를 기다리게 하면 된다.
 
 ```swift
 struct RequestKey: Hashable {
@@ -353,7 +353,7 @@ request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
 - refresh 실패 시 pending request를 어떻게 정리할 것인가?
 - Authorization header를 logging에서 숨기고 있는가?
 
-이 섹션에서 중요한 점은 인증을 `request.setValue` 한 줄로만 보면 안 된다는 것이다. token은 request 생성 시점에는 유효했지만 실제 요청이 처리되는 시점에는 만료되어 있을 수 있고, 여러 요청이 동시에 같은 인증 상태를 공유할 수도 있다.
+이 섹션에서 중요한 점은 인증을 `request.setValue` 한 줄로만 보면 안 된다는 것이다. token은 request 생성 시점에는 유효했지만 실제 요청이 처리되는 시점에는 만료되어 있을 수 있고 여러 요청이 동시에 같은 인증 상태를 공유할 수도 있다.
 
 ## 7. 정리
 

@@ -1,7 +1,7 @@
 ---
 title: "TCA Dependency: 외부 작업을 Reducer에서 분리하기"
 date: "2026-06-04T11:07:59.268Z"
-excerpt: "Dependency의 역활에 대해 정리"
+excerpt: "Dependency의 역할에 대해 정리"
 categories: architecture
 tags: ["The Composable Architecture"]
 source_url: "https://velog.io/@opficdev/TCA-Dependency-외부-작업을-Reducer에서-분리하기"

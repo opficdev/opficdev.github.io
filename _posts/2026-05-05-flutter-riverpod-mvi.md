@@ -86,7 +86,7 @@ BLoC
 이번 글에서는 MVI의 핵심 아이디어인 단방향 상태 흐름을 기준으로 비교한다.
 
 다만 아래 흐름이 표준 MVI라는 뜻은 아니다.
-MVI는 구현체마다 Intent, Effect, Result를 나누는 방식이 다르고, 어떤 구현은 Effect나 Result를 별도 요소로 명시하지 않기도 한다.
+MVI는 구현체마다 Intent, Effect, Result를 나누는 방식이 다르고 어떤 구현은 Effect나 Result를 별도 요소로 명시하지 않기도 한다.
 
 이 글에서는 Flutter 기본 상태관리와 Riverpod을 같은 기준에서 비교하기 위해 Intent Reducer, Effect Handler, Result Reducer를 명시적으로 분리한 커스텀 흐름을 사용한다.
 
@@ -195,7 +195,7 @@ class BasicStudyStore extends ChangeNotifier implements BasicStudyStoreHandle {
 ```
 
 `BasicStudyStoreHandle`은 View에 노출되는 최소 인터페이스다.
-View는 `state`를 읽고 `send`를 호출할 수 있지만, Store 내부 Repository나 `dispose()` 같은 운영 메서드에는 의존하지 않는다.
+View는 `state`를 읽고 `send`를 호출할 수 있지만 Store 내부 Repository나 `dispose()` 같은 운영 메서드에는 의존하지 않는다.
 
 이 Store는 세 가지를 직접 책임진다.
 
@@ -505,7 +505,7 @@ BasicStudyStore(MockStudyRepository())
 Riverpod에서는 Repository 자체를 Provider로 등록한다.
 다만 이 예제에서는 View가 Repository Provider를 직접 읽어 MVI 흐름을 우회하지 않도록 private으로 둔다.
 
-실제 앱에서는 Repository Provider를 별도 DI 파일에 public으로 두고, feature View에서는 Notifier만 읽도록 import 경계를 나누는 방식도 가능하다.
+실제 앱에서는 Repository Provider를 별도 DI 파일에 public으로 두고 feature View에서는 Notifier만 읽도록 import 경계를 나누는 방식도 가능하다.
 핵심은 View가 Repository를 직접 호출하지 않고 `send`를 통해서만 상태 흐름에 참여하게 만드는 것이다.
 
 ```text

@@ -3,7 +3,7 @@ title: "NavigationStack과 NavigationSplitView 사이에서 ViewModel은 어디�
 date: "2026-05-10T16:27:10.860Z"
 excerpt: "NavigationStack 기반 iOS 앱을 NavigationSplitView 구조로 확장하며 ViewModel 생성 위치와 생명주기 책임을 어떻게 분리할지 정리한 포스트"
 categories: ios
-tags: ["Life Cyle","navigation","swiftui"]
+tags: ["Life Cycle","navigation","swiftui"]
 source_url: "https://velog.io/@opficdev/NavigationStack과-NavigationSplitView-사이에서-ViewModel은-어디서-만들어야-할까"
 header:
   teaser: "/assets/images/posts/navigation-viewmodel-lifecycle/cover.png"
@@ -73,14 +73,14 @@ struct ColorDetail: View {
 
 NavigationStack {
     List {
-        NavigationLink('Mint', value: Color.mint)
-        NavigationLink('Pink', value: Color.pink)
-        NavigationLink('Teal', value: Color.teal)
+        NavigationLink("Mint", value: Color.mint)
+        NavigationLink("Pink", value: Color.pink)
+        NavigationLink("Teal", value: Color.teal)
     }
     .navigationDestination(for: Color.self) { color in
         ColorDetail(color: color)
     }
-    .navigationTitle('Colors')
+    .navigationTitle("Colors")
 }
 ```
 
@@ -179,7 +179,7 @@ var body: some View {
         if let color = selection {
             ColorDetail(color: color)
         } else {
-            Text('Pick a color')
+            Text("Pick a color")
         }
     }
 }

@@ -28,28 +28,50 @@ source_url: "https://velog.io/@opficdev/Publisher"
 
 
 ## 2. 이벤트
-공식 문서에서는 Publisher을 통해 다음과 같은 3가지 이벤트를 전달할 수 있다고 설명한다.
+공식 문서에서는 Publisher를 통해 다음과 같은 3가지 이벤트를 전달할 수 있다고 설명한다.
 <img src="/assets/images/posts/combine-publisher/image-02.png">
 
 ### 1. receive(subscription:)
 - Publisher가 Subscriber에게 `이제 연결되었으니 제어해` 라고 알려주는 단계
-- Subscription 객체를 전달하여 제어 (**Subscription**: Publisher과 Subscriber 사이의 `연결 객체`)
+- Subscription 객체를 전달하여 제어 (**Subscription**: Publisher와 Subscriber 사이의 `연결 객체`)
 - **구독 시작 + 제어권 전달**
 
 ### 2. receive(_:)
 - Publisher가 값을 **하나씩** Subscriber에게 전달하는 단계
-- 여러번 호출이 가능하다 (0 ~ n번)
-- return 값으로 **Subscribers.Demand**를 반환하므로 이를 통해 값을 추가 요청이 가능하다
+- 여러 번 호출이 가능하다 (0 ~ n번)
+- return 값으로 **Subscribers.Demand**를 반환하므로 이를 통해 값을 추가로 요청할 수 있다
 - **실제 데이터 전달**
 
 ### 3. receive(completion:)
 - Publisher가 `이제 종료됨`을 알림
 - 딱 **1번**만 호출됨
-- 호출 이후에는 값이 오지 않고 스트림이 완전이 종료된다
+- 호출 이후에는 값이 오지 않고 스트림이 완전히 종료된다
 - **스트림 종료**
 
 ## 3. 구조
-... 추가 검색해야할듯
+Publisher는 프로토콜이며 방출하는 값과 실패의 타입을 연관 타입으로 선언한다.
+
+```swift
+protocol Publisher {
+    associatedtype Output
+    associatedtype Failure: Error
+
+    func receive<S>(subscriber: S) where S: Subscriber, Self.Failure == S.Failure, Self.Output == S.Input
+}
+```
+
+- `Output`: 방출하는 값의 타입
+- `Failure`: 실패 시 전달하는 에러의 타입 (실패하지 않으면 `Never`)
+- `receive(subscriber:)`: Subscriber를 받아 연결하는 메서드
+
+Subscriber는 Publisher와 타입이 맞아야 연결할 수 있다. Publisher의 `Output`은 Subscriber의 `Input`과, Publisher의 `Failure`는 Subscriber의 `Failure`와 같아야 한다.
+
+Subscriber와 Subscription의 역할은 다음과 같다.
+
+- Subscriber: `receive(subscription:)`, `receive(_:)`, `receive(completion:)`으로 이벤트를 받는다
+- Subscription: `request(_:)`로 받을 값의 개수를 요청하고 `cancel()`로 구독을 취소한다
+
+즉 Publisher는 값을 어떻게 만들지 정의하고 Subscriber는 값을 받는 방식을 정의하며 Subscription은 둘 사이의 요청과 취소를 맡는다.
 
 ## 4. 가장 간단한 Publisher 사용 예제
 <img width="50%" src="/assets/images/posts/combine-publisher/image-03.png">
@@ -57,9 +79,9 @@ source_url: "https://velog.io/@opficdev/Publisher"
 -  단일 값 방출 후 즉시 종료되는 결과를 볼 수 있다
 - **sink** 가 Subscriber 역할을 하고 있다.
 
-## 5. Subscriber과의 연결
-앞선 예제에서 `sink`를 통해 쉽게 값을 받았지만, 사실은 더 큰 의미가 있다.
-Publisher은 값을 만들어 낼 수 있는 타입이지만 그 자체만으로는 데이터 전달이 시작되지 않는다. 공식 문서에서도 Publisher과 Subscriber를 연결할 때 내부적으로 publisher.subscribe(subscriber)를 호출하고, Publisher은 Subscriber가 연결되기 전까지 데이터를 보낼 수 없다고 설명한다.
+## 5. Subscriber와의 연결
+앞선 예제에서 `sink`를 통해 쉽게 값을 받았지만 사실은 더 큰 의미가 있다.
+Publisher는 값을 만들어 낼 수 있는 타입이지만 그 자체만으로는 데이터 전달이 시작되지 않는다. 공식 문서에서도 Publisher와 Subscriber를 연결할 때 내부적으로 publisher.subscribe(subscriber)를 호출하며 Publisher는 Subscriber가 연결되기 전까지 데이터를 보낼 수 없다고 설명한다.
 
 <img src="/assets/images/posts/combine-publisher/image-04.png">
 
@@ -68,7 +90,7 @@ Publisher은 값을 만들어 낼 수 있는 타입이지만 그 자체만으로
 > Subscriber = 값을 받겠다고 선언하는 쪽
 > Subscription = 둘 사이를 연결하고 흐름을 제어하는 객체
 
-기억해야 할 점은 Publisher은 단순히 `값 저장소`가 아닌 Subscriber과 연결되었을 때 동작하는 스트림의 출발점이라는 것이다. 이 구조 덕분에 Combine은 일반적인 `함수 호출 -> 즉시 값 반환` 형태와 다르게 구독이 발생해야 실행되는 지연 구조(`Lazy`) 성격을 가진다. 
+기억해야 할 점은 Publisher는 단순히 `값 저장소`가 아니라 Subscriber와 연결되었을 때 동작하는 스트림의 출발점이라는 것이다. 이 구조 덕분에 Combine은 일반적인 `함수 호출 -> 즉시 값 반환` 형태와 다르게 구독이 발생해야 실행되는 지연 구조(`Lazy`) 성격을 가진다. 
 
 ### 왜 Subscriber가 있어야 하는가?
 일반적인 함수 코드는 다음과 같이 즉시 값이 방출된다.
@@ -80,24 +102,24 @@ func add(_ lhs: Int, _ rhs: Int) -> Int {
 print(add(1, 2))
 // 3
 ```
-하지만 Publisher은 만들어 둔다고 해서 값이 자동으로 방출되지 않는다.
+하지만 Publisher는 만들어 둔다고 해서 값이 자동으로 방출되지 않는다.
 ```swift
 import Combine
 
 let publisher = [1, 2, 3].publisher
 ```
-이 코드는 `값을 방출할 수 있는 Publisher를 만든 것` 뿐이다. 값 방출에 대해 컨트롤하는 Subscriber가 없기 때문에 `데이터 방출` 이라는 이벤트가 전혀 발생하지 않는다. Subscriber가 붙어야 Publisher가 만든 값을 누구에게, 어떤 속도로, 어떤 생명 주기로 결정할 수 있다. 
+이 코드는 `값을 방출할 수 있는 Publisher를 만든 것` 뿐이다. 값 방출을 제어하는 Subscriber가 없기 때문에 `데이터 방출` 이라는 이벤트가 전혀 발생하지 않는다. Subscriber가 붙어야 Publisher가 만든 값을 누구에게, 어떤 속도로, 어떤 생명 주기로 전달할지 결정할 수 있다. 
 
 ### Subscriber가 붙으면 무슨 일이 일어날까?
-1. Subscriber가 Publisher을 구독한다.
+1. Subscriber가 Publisher를 구독한다.
 2. Publisher는 Subscriber에게 Subscription을 전달한다.
 3. Subscriber는 Subscription을 통해 몇 개의 값을 받을지 요청한다.
 4. Publisher는 그 요청에 맞춰 값을 방출한다.
 5. 마지막으로 완료 이벤트를 보낸다.
 
-즉 Combine에서의 연결은 리스너 등록이 아닌, `데이터 흐름 자체의 시작`이다.
+즉 Combine에서의 연결은 리스너 등록이 아닌 `데이터 흐름 자체의 시작`이다.
 
-## 6. Operator을 통한 변환
+## 6. Operator를 통한 변환
 Publisher는 연산자(Operator)를 통해 변환이 가능하다.
 
 ```swift

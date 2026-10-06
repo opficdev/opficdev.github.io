@@ -1,7 +1,7 @@
 ---
 title: "TCA StoreOf: View와 Feature 연결하기"
 date: "2026-06-04T12:47:37.735Z"
-excerpt: "View와 Reducer을 연결하는 Store에 대해 정리"
+excerpt: "View와 Reducer를 연결하는 Store에 대해 정리"
 categories: architecture
 tags: ["The Composable Architecture"]
 source_url: "https://velog.io/@opficdev/TCA-Store-View와-Feature-연결하기"

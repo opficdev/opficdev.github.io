@@ -611,7 +611,7 @@ iOS Client
 
 Callable Function은 여기서 '사용자가 요청한 작업'의 서버 진입점이 된다.
 
-## Scheduled Functions는 주기적으로 실행될 작업을 담당한다.
+## Scheduled Functions는 주기적으로 실행될 작업을 담당한다
 
 Cloud Functions 공식 문서에서 scheduled function은 `onSchedule`로 작성한다.
 
@@ -935,7 +935,7 @@ admin.messaging()
 -> FCM 발송
 ```
 
-Admin SDK는 보안 규칙을 통과하는 클라이언트 SDK와 다르다.
+Admin SDK는 보안 규칙의 적용을 받는 클라이언트 SDK와 달리 보안 규칙을 우회한다.
 
 서버 권한으로 실행되기 때문에 입력 검증을 함수 안에서 직접 해야 한다.
 
