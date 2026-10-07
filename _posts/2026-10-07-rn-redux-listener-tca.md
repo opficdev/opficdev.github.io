@@ -27,7 +27,7 @@ TCA나 ReactorKit에 익숙한 상태에서 React Native의 상태 관리 도구
 
 TCA와 가장 비슷하게 구성하려면 Redux Toolkit(이하 RTK)에 `createListenerMiddleware`를 붙이는 조합이 맞다고 판단했습니다. ReactorKit처럼 Observable로 Effect를 다루려면 redux-observable이 가깝지만 RxJS를 함께 익혀야 합니다.
 
-Zustand와 Jotai도 널리 쓰입니다. 다만 Zustand는 스토어 안의 함수로 상태를 바꾸는 사용법이 기본이고 Jotai는 atom 단위로 상태를 나눕니다. 둘 다 Action과 Reducer를 분리한 흐름이 기본 사용법이 아니므로 같은 구조를 만들려면 규칙을 직접 세워야 합니다.
+Zustand와 Jotai도 널리 쓰입니다. 다만 Zustand는 스토어 안의 함수로 상태를 바꾸는 사용법이 기본이고 Jotai는 atom 단위로 상태를 나눕니다. atom은 `atom(0)`처럼 만드는 값 하나짜리 최소 상태 단위입니다. 둘 다 Action과 Reducer를 분리한 흐름이 기본 사용법이 아니므로 같은 구조를 만들려면 규칙을 직접 세워야 합니다.
 
 서버 데이터의 캐싱과 동기화는 TanStack Query 같은 도구의 영역이라 이 글에서는 다루지 않습니다.
 
