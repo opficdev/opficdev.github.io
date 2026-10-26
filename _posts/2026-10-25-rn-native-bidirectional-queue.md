@@ -9,7 +9,7 @@ tags: []
 
 네이티브에서 계속 만들어지는 센서 값을 React Native의 JS로 보내는 방식인 스트림과 큐를 같은 조건에서 반복 측정하여 어느 쪽이 어떤 조건에서 더 효율적인지 확인하는 것이 이 실험의 목적이다.
 
-이 실험의 큐는 JS가 프레임마다 값을 꺼내 가도록 만들었다. 그래서 큐의 이점이 큐라는 구조에서 나오는지 아니면 프레임 단위로 처리하는 데서만 나오는지를 가려내기 위해 대조군인 프레임 묶음을 하나 더 두었다.
+비교하는 방식은 스트림과 큐 두 가지이다. 이 실험의 큐는 JS가 프레임마다 값을 꺼내 가도록 만들었다. 그래서 큐의 이점이 큐라는 구조에서 나오는지 아니면 프레임 단위로 처리하는 데서만 나오는지를 가려내기 위해 대조군인 프레임 묶음을 하나 더 두었다.
 
 ## 2. 실험 배경
 
@@ -102,6 +102,14 @@ React Native 앱에서 JS 코드와 네이티브 코드는 대부분 서로 다�
 <img class="theme-image--dark" src="/assets/images/posts/rn-native-bidirectional-queue/rn-native-queue-flow.png" alt="CoreMotion 콜백이 SampleQueue에 push하고 큐가 처음 채워질 때 emitOnReadable 신호를 보내면 JS가 requestAnimationFrame으로 drain을 예약해 큐에서 꺼내 onBatch 콜백으로 전달하며 setAlpha는 프레임 안에서 마지막 값만 남겨 네이티브를 한 번 호출하는 흐름">
 
 *그림 3. 큐 구조*
+
+비교하는 것은 스트림과 큐이고 같은 샘플이 두 방식에서 어떻게 전달되는지 시간 순서로 그리면 다음과 같다. 스트림은 샘플마다 경계를 넘고 콜백이 실행된다. 큐는 비어 있던 큐가 채워질 때 신호가 한 번 넘어가고 프레임마다 `drain` 한 번에 샘플을 모아 가져가서 콜백이 한 번 실행된다. 큐의 점선 부분은 프레임 동안 쌓인 값을 프레임 끝에 한 번에 처리하는 동작이다. 대조군인 프레임 묶음이 하는 일이 이것이고 큐의 나머지인 신호와 `drain`은 대조군에 없다.
+
+<img class="theme-image--light" src="/assets/images/posts/rn-native-bidirectional-queue/rn-native-queue-timeline-light.png" alt="샘플이 4ms 간격으로 12개 도착하고 프레임이 세 번 지나는 동안 스트림은 경계 통과와 콜백이 각각 12회이고 큐는 신호 3회와 drain 3회로 경계 통과 6회와 콜백 3회이고 큐의 프레임마다 모아 한 번 처리하는 부분이 점선으로 표시된 흐름">
+
+<img class="theme-image--dark" src="/assets/images/posts/rn-native-bidirectional-queue/rn-native-queue-timeline.png" alt="샘플이 4ms 간격으로 12개 도착하고 프레임이 세 번 지나는 동안 스트림은 경계 통과와 콜백이 각각 12회이고 큐는 신호 3회와 drain 3회로 경계 통과 6회와 콜백 3회이고 큐의 프레임마다 모아 한 번 처리하는 부분이 점선으로 표시된 흐름">
+
+*그림 4. 샘플이 4ms 간격으로 도착하고 프레임이 16.7ms 간격일 때 스트림과 큐의 동작. 점선은 대조군인 프레임 묶음과 같은 동작이다. 측정값이 아니라 동작을 보여 주는 개념도이다.*
 
 ### 5.2 절차
 
@@ -203,7 +211,7 @@ React Native 앱에서 JS 코드와 네이티브 코드는 대부분 서로 다�
 
 <img class="align-center" src="/assets/images/posts/rn-native-bidirectional-queue/rn-native-simulator.png" alt="iPhone 18 Pro 시뮬레이터 화면에 스트림, 프레임 묶음, 큐 세 방식의 콜백 횟수, 경계 통과 횟수, 지연, 유실, JS 정지 결과의 평균이 표시된 측정 앱" width="320">
 
-*그림 4. 앱이 화면에 표시한 측정 평균. 화면의 묶음 열은 본문의 프레임 묶음이다. 시뮬레이터에서 합성 샘플로 측정한 값이다.*
+*그림 5. 앱이 화면에 표시한 측정 평균. 화면의 묶음 열은 본문의 프레임 묶음이다. 시뮬레이터에서 합성 샘플로 측정한 값이다.*
 
 ## 7. 고찰
 
