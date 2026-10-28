@@ -3,7 +3,7 @@ title: "React Native 센서 값, 이벤트로 보낼까 큐에 모을까?"
 date: "2026-10-25T00:00:00.000Z"
 excerpt: "iOS 시뮬레이터와 Android 에뮬레이터에서 가속도계 값을 이벤트로 보내는 스트림과 대조군인 프레임 묶음과 네이티브 큐 세 방식으로 JS에 전달하며 콜백 횟수, 경계 통과 횟수, 지연, JS 타이머 지연, 유실을 반복 측정해 비교한 실험 보고서이다."
 categories: architecture
-tags: []
+tags: ["React Native"]
 ---
 ## 1. 실험 목적
 
