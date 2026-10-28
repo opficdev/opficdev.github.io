@@ -1,7 +1,7 @@
 ---
 title: "NavigationStack과 NavigationSplitView 사이에서 ViewModel은 어디서 만들어야 할까?"
 date: "2026-05-10T16:27:10.860Z"
-excerpt: "NavigationStack 기반 iOS 앱을 NavigationSplitView 구조로 확장하며 ViewModel 생성 위치와 생명주기 책임을 어떻게 분리할지 정리한 포스트"
+excerpt: "NavigationStack 기반 iOS 앱을 NavigationSplitView 구조로 확장하며 ViewModel 생성 위치와 생명주기 책임을 어떻게 분리할지 정리"
 categories: ios
 tags: ["Life Cycle","navigation","swiftui"]
 source_url: "https://velog.io/@opficdev/NavigationStack과-NavigationSplitView-사이에서-ViewModel은-어디서-만들어야-할까"

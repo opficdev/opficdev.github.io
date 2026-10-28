@@ -1,7 +1,7 @@
 ---
 title: "Codex에 Xcode Local MCP를 연결해보자"
 date: "2026-04-23T13:24:52.683Z"
-excerpt: "에이전트를 쓰는 시대가 거의 당연시되는 시대에서 iOS 개발이라고 뒤처질 수 없으니 적극적으로 사용해보자"
+excerpt: "에이전트를 쓰는 시대가 거의 당연시되는 시대에서 iOS 개발이라고 뒤처질 수 없으니 적극적으로 사용해보기"
 categories: tools
 tags: ["Xcode","codex"]
 source_url: "https://velog.io/@opficdev/Codex에-Xcode-Local-MCP를-연결해보자"

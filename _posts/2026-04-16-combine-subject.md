@@ -1,7 +1,7 @@
 ---
 title: "Subject"
 date: "2026-04-15T15:00:52.088Z"
-excerpt: "Combine의 Subject에 대해 간단하게 알아보자"
+excerpt: "Combine의 Subject에 대해 간단하게 알아보기"
 categories: swift
 tags: ["Combine","swift"]
 source_url: "https://velog.io/@opficdev/CombineSubject"

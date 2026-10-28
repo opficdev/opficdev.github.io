@@ -1,7 +1,7 @@
 ---
 title: "Flutter 기본 상태관리와 Riverpod으로 같은 MVI 구조를 만들어보면 무엇이 달라질까?"
 date: "2026-05-04T15:56:06.048Z"
-excerpt: "동일한 커스텀 MVI 패턴으로 구성하되 Flutter 기본 상태관리와 Riverpod으로 만들었을 때 어떻게 달라지는지 비교 및 분석해보았다."
+excerpt: "동일한 커스텀 MVI 패턴으로 구성하되 Flutter 기본 상태관리와 Riverpod으로 만들었을 때 어떻게 달라지는지 비교 및 분석"
 categories: flutter
 tags: ["flutter","state management"]
 source_url: "https://velog.io/@opficdev/Flutter-기본-상태관리와-Riverpod으로-같은-MVI-구조를-만들어보면-무엇이-달라질까"

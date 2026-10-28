@@ -1,7 +1,7 @@
 ---
 title: "React Native에서 TCA 같은 단방향 구조 만들기: Redux Toolkit과 createListenerMiddleware"
 date: "2026-10-07T00:00:00.000Z"
-excerpt: "TCA나 ReactorKit 수준의 단방향 구조를 React Native에서 Redux Toolkit과 createListenerMiddleware로 구성하고 같은 기능을 TCA와 비교하며 정리한다."
+excerpt: "TCA나 ReactorKit 수준의 단방향 구조를 React Native에서 Redux Toolkit과 createListenerMiddleware로 구성하고 같은 기능을 TCA와 비교하며 정리"
 categories: architecture
 tags: ["React Native","Redux Toolkit","The Composable Architecture"]
 ---

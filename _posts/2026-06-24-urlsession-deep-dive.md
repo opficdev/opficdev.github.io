@@ -1,7 +1,7 @@
 ---
 title: "URLSession 딥다이브: Swift 네트워크 요청은 어디서 실행되고 어디서 실패하는가"
 date: "2026-06-24T05:09:54.265Z"
-excerpt: "Swift의 URLRequest와 URLSession이 각각 어떤 책임을 갖는지 실험 코드로 확인하고 HTTP status validation, 진행 중인 중복 요청 방지, retry, auth 같은 네트워크 레이어 설계 기준을 정리한다"
+excerpt: "Swift의 URLRequest와 URLSession이 각각 어떤 책임을 갖는지 실험 코드로 확인하고 HTTP status validation, 진행 중인 중복 요청 방지, retry, auth 같은 네트워크 레이어 설계 기준을 정리"
 categories: swift
 tags: ["URLSession"]
 source_url: "https://velog.io/@opficdev/URLSession-딥다이브-Swift-네트워크-요청은-어디서-실행되고-어디서-실패하는가"
