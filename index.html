@@ -18,6 +18,7 @@ layout: default
           {% when "architecture" %}{% assign category_label = "아키텍처" %}
           {% when "tools" %}{% assign category_label = "개발 도구" %}
           {% when "flutter" %}{% assign category_label = "Flutter" %}
+          {% when "react-native" %}{% assign category_label = "React Native" %}
           {% else %}{% assign category_label = category[0] %}
         {% endcase %}
         <button class="story-filter" type="button" data-tag="{{ category[0] | downcase | escape }}">{{ category_label }}</button>
