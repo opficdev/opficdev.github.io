@@ -2,8 +2,8 @@
 title: "TCA Navigation: 화면 전환을 State로 관리하기"
 date: "2026-06-06T02:17:49.932Z"
 excerpt: "SwiftUI Navigation을 State로 관리하기 위한 @Presents, PresentationAction, .ifLet 에 대해 정리"
-categories: architecture
-tags: ["The Composable Architecture"]
+tags: ["아키텍처","The Composable Architecture"]
+redirect_from: ["/architecture/tca-navigation/"]
 source_url: "https://velog.io/@opficdev/TCA-Navigation-화면-전환을-State로-관리하기"
 header:
   teaser: "/assets/images/posts/tca-cover.png"

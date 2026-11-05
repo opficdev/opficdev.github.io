@@ -2,8 +2,8 @@
 title: "Observable: 선언형 문법 뒤의 추적 구조를 파고들다"
 date: "2026-06-19T07:57:57.975Z"
 excerpt: "@Observable이 단순한 편의 문법이 아니라 매크로 확장을 통해 property access를 기록하고 SwiftUI의 View 갱신 범위를 확인하고 정리"
-categories: swift
-tags: ["observable"]
+tags: ["Swift","Observable"]
+redirect_from: ["/swift/observable-tracking/"]
 source_url: "https://velog.io/@opficdev/Observable-선언형-문법-뒤의-추적-구조를-파고들다"
 ---
 

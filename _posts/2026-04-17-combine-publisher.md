@@ -2,8 +2,8 @@
 title: "Publisher"
 date: "2026-04-17T01:03:20.001Z"
 excerpt: "Combine의 Publisher에 대해 간단히 알아보기"
-categories: swift
-tags: ["Combine","swift"]
+tags: ["Swift","Combine"]
+redirect_from: ["/swift/combine-publisher/"]
 source_url: "https://velog.io/@opficdev/Publisher"
 ---
 

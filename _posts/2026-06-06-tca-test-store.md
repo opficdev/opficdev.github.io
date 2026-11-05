@@ -2,8 +2,8 @@
 title: "TCA TestStore: Reducer의 State와 Action 검증하기"
 date: "2026-06-06T03:11:42.450Z"
 excerpt: "Reducer의 State 변화를 테스트할 수 있는 TestStore 정리"
-categories: architecture
-tags: ["The Composable Architecture"]
+tags: ["아키텍처","The Composable Architecture"]
+redirect_from: ["/architecture/tca-test-store/"]
 source_url: "https://velog.io/@opficdev/TCA-TestStore-Reducer의-State와-Action-검증하기"
 header:
   teaser: "/assets/images/posts/tca-cover.png"

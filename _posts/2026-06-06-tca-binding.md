@@ -2,8 +2,8 @@
 title: "TCA Binding: 바인딩 변경을 Action으로 다루기"
 date: "2026-06-05T15:10:04.813Z"
 excerpt: "SwiftUI의 Binding과 직접 연결할 수 있는 @Bindable과 BindableAction을 정리"
-categories: architecture
-tags: ["The Composable Architecture"]
+tags: ["아키텍처","The Composable Architecture"]
+redirect_from: ["/architecture/tca-binding/"]
 source_url: "https://velog.io/@opficdev/TCA-Binding-바인딩-변경을-Action으로-다루기"
 header:
   teaser: "/assets/images/posts/tca-cover.png"

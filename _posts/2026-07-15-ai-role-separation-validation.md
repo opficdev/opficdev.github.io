@@ -2,8 +2,8 @@
 title: "AI 역할 분리와 검증 기준을 적용한 개발 과정"
 date: "2026-07-15T03:14:21.372Z"
 excerpt: "Hermes에 있던 아키텍처 규칙을 Codex 중심 구조로 옮기며 AI 역할, 모델과 권한, 호출 계약, 검증 기준을 리포지토리에 정의한 과정을 정리"
-categories: tools
-tags: ["codex","Hermes Agent"]
+tags: ["개발 도구","Codex","Hermes Agent"]
+redirect_from: ["/tools/ai-role-separation-validation/"]
 source_url: "https://velog.io/@opficdev/AI-역할-분리와-검증-기준을-적용한-개발-과정"
 ---
 

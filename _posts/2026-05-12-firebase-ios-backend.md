@@ -2,8 +2,8 @@
 title: "Firebase로 iOS 앱 백엔드를 구성하며 마주한 것들"
 date: "2026-05-12T13:34:43.920Z"
 excerpt: "별도의 서버를 직접 운영하지 않고 Firebase로 인증, 데이터 저장, 푸시 알림, 주기 실행 흐름까지 구성한 과정을 정리"
-categories: ios
-tags: ["Firebase","iOS"]
+tags: ["iOS","Firebase"]
+redirect_from: ["/ios/firebase-ios-backend/"]
 source_url: "https://velog.io/@opficdev/별도-서버-없이-Firebase로-iOS-앱-기능-구성하기"
 header:
   teaser: "/assets/images/posts/firebase-ios-backend/cover.png"

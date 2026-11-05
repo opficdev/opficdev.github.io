@@ -2,8 +2,8 @@
 title: "TCA CasePathable: enum case를 key path처럼 다루기"
 date: "2026-06-15T17:08:02.926Z"
 excerpt: "Reducer가 자동 처리하지 않는 enum case를 연결할 수 있는 매크로인 CasePathable에 대해 정리"
-categories: architecture
-tags: ["The Composable Architecture"]
+tags: ["아키텍처","The Composable Architecture"]
+redirect_from: ["/architecture/tca-casepathable/"]
 source_url: "https://velog.io/@opficdev/TCA-CasePathable-enum-case를-key-path처럼-다루기"
 header:
   teaser: "/assets/images/posts/tca-cover.png"

@@ -2,8 +2,8 @@
 title: "TCA AlertState: Alert 표시를 State로 관리하기"
 date: "2026-06-09T08:21:40.879Z"
 excerpt: "Alert 표시 여부와 내용을 AlertState로 State에 두고 Reducer에서 관리하는 방식을 정리"
-categories: architecture
-tags: ["The Composable Architecture"]
+tags: ["아키텍처","The Composable Architecture"]
+redirect_from: ["/architecture/tca-alert-state/"]
 source_url: "https://velog.io/@opficdev/TCA-AlertState-Alert-표시를-State로-관리하기"
 header:
   teaser: "/assets/images/posts/tca-cover.png"

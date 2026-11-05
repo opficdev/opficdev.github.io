@@ -2,8 +2,8 @@
 title: "UICollectionView로 이해하는 FlashList와 React.memo"
 date: "2026-11-01T00:00:00.000Z"
 excerpt: "FlashList에서 썸네일 하나가 로드될 때 보이는 카드가 전부 다시 렌더되던 문제를 UICollectionView의 셀 재사용과 갱신 개념에 대응시켜 원인을 찾고 useCallback과 React.memo로 고친 과정 정리"
-categories: ["ios","react-native"]
-tags: ["React Native","FlashList"]
+tags: ["iOS","React Native","FlashList"]
+redirect_from: ["/ios/react-native/flashlist-memo-uicollectionview/"]
 ---
 
 ## 같은 화면을 UIKit과 React Native로 두 번 만들었습니다

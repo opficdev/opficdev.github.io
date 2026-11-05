@@ -2,8 +2,8 @@
 title: "AI가 아키텍처를 임의로 해석하지 않게 만드는 방법. Hermes와 Harness Engineering"
 date: "2026-05-19T01:18:03.430Z"
 excerpt: "개인 프로젝트에 모듈러 아키텍처를 적용하면서 AI 추론에 안전장치인 하네스를 적용해본 스토리"
-categories: tools
-tags: ["Hermes Agent"]
+tags: ["개발 도구","Hermes Agent"]
+redirect_from: ["/tools/hermes-harness-engineering/"]
 source_url: "https://velog.io/@opficdev/AI가-아키텍처를-임의로-해석하지-않게-만드는-방법.-Hermes와-Harness-Engineering"
 header:
   teaser: "/assets/images/posts/hermes-harness-engineering/cover.png"

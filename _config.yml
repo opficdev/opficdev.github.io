@@ -13,7 +13,7 @@ search: false
 show_excerpts: false
 markdown: kramdown
 highlighter: rouge
-permalink: /:categories/:title/
+permalink: /posts/:title/
 timezone: Asia/Seoul
 words_per_minute: 200
 
@@ -21,6 +21,7 @@ logo:
 
 plugins:
   - jekyll-include-cache
+  - jekyll-redirect-from
 
 defaults:
   - scope:

@@ -2,8 +2,8 @@
 title: "TCA 기본: State, Action, Reducer 흐름 이해하기"
 date: "2026-06-04T08:19:09.146Z"
 excerpt: "Store의 기본적인 '상태 관리' 를 정리"
-categories: architecture
-tags: ["The Composable Architecture"]
+tags: ["아키텍처","The Composable Architecture"]
+redirect_from: ["/architecture/tca-basics/"]
 source_url: "https://velog.io/@opficdev/TCA1-State-Action-Reducer-흐름-이해하기"
 header:
   teaser: "/assets/images/posts/tca-cover.png"

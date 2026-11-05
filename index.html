@@ -10,24 +10,17 @@ layout: default
 
     <nav class="story-filters" aria-label="글 분류 필터">
       <button class="story-filter is-active" type="button" data-tag="all">전체</button>
-      {% assign sorted_categories = site.categories | sort %}
-      {% for category in sorted_categories %}
-        {% case category[0] %}
-          {% when "ios" %}{% assign category_label = "iOS" %}
-          {% when "swift" %}{% assign category_label = "Swift" %}
-          {% when "architecture" %}{% assign category_label = "아키텍처" %}
-          {% when "tools" %}{% assign category_label = "개발 도구" %}
-          {% when "flutter" %}{% assign category_label = "Flutter" %}
-          {% when "react-native" %}{% assign category_label = "React Native" %}
-          {% else %}{% assign category_label = category[0] %}
-        {% endcase %}
-        <button class="story-filter" type="button" data-tag="{{ category[0] | downcase | escape }}">{{ category_label }}</button>
+      {% assign filter_tags = "아키텍처|Flutter|iOS|React Native|Swift|개발 도구" | split: "|" %}
+      {% for tag in filter_tags %}
+        {% if site.tags[tag] %}
+          <button class="story-filter" type="button" data-tag="{{ tag | downcase | escape }}">{{ tag }}</button>
+        {% endif %}
       {% endfor %}
     </nav>
 
     <div class="story-list">
       {% for post in site.posts %}
-        <article class="story-item{% if post.header.teaser %} story-item--with-media{% endif %}" data-tags="{{ post.categories | join: '|' | downcase | escape }}" data-search="{{ post.title | append: ' ' | append: post.excerpt | strip_html | append: ' ' | append: post.tags | downcase | escape }}">
+        <article class="story-item{% if post.header.teaser %} story-item--with-media{% endif %}" data-tags="{{ post.tags | join: '|' | downcase | escape }}" data-search="{{ post.title | append: ' ' | append: post.excerpt | strip_html | append: ' ' | append: post.tags | downcase | escape }}">
           {% if post.header.teaser %}
             <a class="story-item__media" href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true">
               <img src="{{ post.header.teaser | relative_url }}" alt="">
@@ -37,7 +30,7 @@ layout: default
           <div class="story-item__content">
             {% if post.tags.size > 0 %}
               <div class="story-item__tags" aria-label="태그">
-                {% for tag in post.tags limit: 3 %}
+                {% for tag in post.tags limit: 4 %}
                   <span>#{{ tag }}</span>
                 {% endfor %}
               </div>

@@ -2,8 +2,8 @@
 title: "TCA Reducer: 상태 변경과 Effect 반환"
 date: "2026-06-04T08:57:15.638Z"
 excerpt: "Reducer에서 Effect를 반환하고 그에 따른 추가적 상태변화에 대해 정리"
-categories: architecture
-tags: ["The Composable Architecture"]
+tags: ["아키텍처","The Composable Architecture"]
+redirect_from: ["/architecture/tca-reducer/"]
 source_url: "https://velog.io/@opficdev/TCA2-상태-변경과-Effect-반환-구조"
 header:
   teaser: "/assets/images/posts/tca-cover.png"
