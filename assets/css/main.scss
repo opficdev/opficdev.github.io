@@ -18,10 +18,11 @@
   --code-text: #24292f;
   --code-comment: #6e7781;
   --code-keyword: #cf222e;
-  --code-type: #8250df;
+  --code-type: #953800;
   --code-string: #0a3069;
   --code-number: #0550ae;
   --code-function: #8250df;
+  --code-operator: #1b7c83;
 }
 
 :root[data-color-scheme="dark"] {
@@ -38,10 +39,11 @@
   --code-text: #e6edf3;
   --code-comment: #8b949e;
   --code-keyword: #ff7b72;
-  --code-type: #d2a8ff;
+  --code-type: #ffa657;
   --code-string: #a5d6ff;
   --code-number: #79c0ff;
   --code-function: #d2a8ff;
+  --code-operator: #7ee0d6;
 }
 
 * {
@@ -652,6 +654,7 @@ a.stories-title:visited:focus-visible {
 .article-content .highlight .sb,
 .article-content .highlight .sc,
 .article-content .highlight .sd,
+.article-content .highlight .dl,
 .article-content .highlight .se,
 .article-content .highlight .si,
 .article-content .highlight .sr,
@@ -673,6 +676,10 @@ a.stories-title:visited:focus-visible {
 .article-content .highlight .na,
 .article-content .highlight .nb {
   color: var(--code-function);
+}
+
+.article-content .highlight .o {
+  color: var(--code-operator);
 }
 
 .article-content :not(pre) > code {

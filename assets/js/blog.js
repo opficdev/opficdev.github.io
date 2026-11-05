@@ -234,8 +234,23 @@ function registerArticleToc() {
   scheduleActiveSectionUpdate();
 }
 
+function registerCodeHighlight() {
+  // Rouge의 ts/tsx 렌더러는 함수 호출과 타입 이름도 Name.Other(nx)로 내보내므로 토큰 모양으로 다시 구분한다.
+  document.querySelectorAll(".article-content .highlight .nx").forEach((token) => {
+    const next = token.nextElementSibling;
+    const name = token.textContent;
+
+    if (next && next.classList.contains("p") && next.textContent.startsWith("(")) {
+      token.classList.add("nf");
+    } else if (/^[A-Z][A-Za-z0-9]*$/.test(name)) {
+      token.classList.add("nc");
+    }
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   registerThemeToggle();
   registerStoryFilters();
   registerArticleToc();
+  registerCodeHighlight();
 });
